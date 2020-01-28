@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--注：在这里，我们没有配置 MyBatis 的运行环境、数据源等，那是因为我们要将这些交给 Spring 进行配置管理。-->
+<configuration>
+    <!-- 为JavaBean 起类别名 (批量定义方式)-->
+    <typeAliases>
+        <package name="com.bemore.domain" />
+    </typeAliases>
+</configuration>
