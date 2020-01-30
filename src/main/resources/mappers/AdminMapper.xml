@@ -13,5 +13,36 @@
         select * from
         admin_tb where username = #{username} and password = #{password} limit 1
     </select>
-    
+    <!--根据条件查找管理员-->
+    <select id="findAdmins" parameterType="Map" resultMap="AdminResult">
+        select * from admin_tb
+        <where>
+          <if test="username != null and username != ''">
+              username like #{username}
+          </if>
+        </where>
+    </select>
+    <!--根据条件查找管理员人数-->
+    <select id="getCount" parameterType="Map" resultType="Integer">
+        select count(1) from admin_tb
+        <where>
+            <if test="username != null and username != ''">
+                username like #{username}
+            </if>
+        </where>
+    </select>
+    <!--添加管理员-->
+    <insert id="addAdmin" useGeneratedKeys="true" keyProperty="admin_id">
+        insert into admin_tb(username, password)
+        values(#{username}, #{password})
+    </insert>
+    <!--修改管理员-->
+    <update id="updateAdmin" parameterType="Admin">
+        update admin_tb set
+        username = #{username}, password = #{password} where admin_id = #{id}
+    </update>
+    <!--删除管理员-->
+    <delete id="deleteAdmin" parameterType="Integer">
+        delete from admin_tb where admin_id = #{id}
+    </delete>
 </mapper>

@@ -1,6 +1,7 @@
 package com.bemore.dao;
 
 import com.bemore.domain.Admin;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
  * @author Bmo
  * @date 2020/1/28 22:30
  */
+@Repository
 public interface AdminDao {
     /** 登录
      *
