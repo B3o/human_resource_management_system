@@ -1,5 +1,6 @@
 package com.bemore.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  * @author Bmo
  * @date 2020/1/28 15:59
  */
-public class Post {
+public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String title;

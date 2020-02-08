@@ -118,7 +118,7 @@ public class PostController {
 
     @RequestMapping("/getById")
     public String getById(@RequestParam(value = "id") Integer id,
-                          HttpServletRequest request, HttpResponse response) throws Exception {
+                          HttpServletRequest request, HttpServletResponse response) throws Exception {
         Post post = postService.getPostById(id);
         request.setAttribute("postContent", post.getContent());
         return "postContent";

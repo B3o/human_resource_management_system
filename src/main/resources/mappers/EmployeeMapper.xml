@@ -24,7 +24,7 @@
     </resultMap>
     <!--根据条件查询员工-->
     <select id="findEmployees" parameterType="Map" resultMap="EmployeeResult">
-        select e.emp_id, e.emp_name, e.sex, e.phone, e.email, e.address, e.education
+        select e.emp_id, e.emp_name, e.sex, e.phone, e.email, e.address, e.education,
         e.birthday, d.dept_id, d.dept_name, p.pos_id, p.pos_name
         FROM employee_tb e, dept_tb d, position_tb p where e.dept_id = d.dept_id
         and e.pos_id = p.pos_id

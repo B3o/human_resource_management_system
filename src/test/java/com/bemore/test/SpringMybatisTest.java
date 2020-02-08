@@ -1,7 +1,9 @@
 package com.bemore.test;
 
 import com.bemore.domain.Admin;
+import com.bemore.domain.Employee;
 import com.bemore.service.AdminService;
+import com.bemore.service.EmployeeService;
 import com.bemore.service.PostService;
 import com.bemore.util.ResponseUtil;
 import net.sf.json.JSONArray;
@@ -29,6 +31,8 @@ public class SpringMybatisTest {
     private AdminService adminService;
     @Autowired
     private PostService postService;
+    @Autowired
+    private EmployeeService employeeService;
 
     @Test
     public void testLogin() {
@@ -57,6 +61,15 @@ public class SpringMybatisTest {
         result.put("rows", jsonArray);
         result.put("total", total);
         System.out.println(result.toString());
+    }
+    @Test
+    public void testSelect() {
+        Employee employee = new Employee();
+        employee.setName("Tom");
+        Map map = new HashMap<String, Object>();
+        map.put("name", employee.getName());
+        List<Employee> employeeList =  employeeService.findEmployees(map);
+        System.out.println(employeeList.size());
     }
 
 }
