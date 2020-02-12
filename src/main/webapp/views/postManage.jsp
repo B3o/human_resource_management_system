@@ -172,10 +172,10 @@
 <div id="tb">
     <div>
         <a href="javascript:openPostAddDialog()" class="easyui-linkbutton"
-           iconCls="icon-add" plain="true">Add</a> <a
-            href="javascript:openPostModifyDialog()" class="easyui-linkbutton"
-            iconCls="icon-edit" plain="true">Modify</a> <a
-            href="javascript:deletePost()" class="easyui-linkbutton"
+           iconCls="icon-add" plain="true">Add</a>
+        <a href="javascript:openPostModifyDialog()" class="easyui-linkbutton"
+            iconCls="icon-edit" plain="true">Modify</a>
+        <a href="javascript:deletePost()" class="easyui-linkbutton"
             iconCls="icon-remove" plain="true">Delete</a>
     </div>
     <div>

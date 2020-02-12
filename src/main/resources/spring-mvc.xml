@@ -9,12 +9,16 @@
       http://www.springframework.org/schema/mvc
      http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
+
+    <mvc:default-servlet-handler />
+
+
     <!-- 自动扫描该包，Spring MVC 会将包下用 @Controller 注解的类注册为 Spring 的 controller -->
     <context:component-scan base-package="com.bemore.controller" />
     <!-- 设置默认配置方案 -->
     <mvc:annotation-driven />
     <!-- 静态资源访问 -->
-    <mvc:resources location="/" mapping="/**" />
+    <!--<mvc:resources location="/" mapping="/**" />-->
     <!-- 视图解析器 -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -30,7 +34,11 @@
     <!-- 配置拦截器 -->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/*" />
+            <mvc:mapping path="/admin/*" />
+            <mvc:mapping path="/dept/*" />
+            <mvc:mapping path="/empl/*" />
+            <mvc:mapping path="/position/*" />
+            <mvc:mapping path="/post/*" />
             <bean class="com.bemore.interceptor.LoginInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>

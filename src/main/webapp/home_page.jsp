@@ -56,7 +56,7 @@
                 style="font-size: 20px; color: #8B8B8B; font-family: '\u6977\u4f53';"
                 align="right" width="50%"><font size="3">&nbsp;&nbsp;<strong>Current
                 Admin:</strong>
-            </font> <font color="red">${sessionScope.currentAdmin.username}</font></td>
+            </font> <font color="black"><u>${sessionScope.currentAdmin.username}</u></font></td>
         </tr>
     </table>
 </div>

@@ -89,7 +89,7 @@
         function openAdminModifyDialog() {
             var selectedRows = $("#dg").datagrid('getSelections');
             if (selectedRows.length != 1) {
-                $.messager.alert("system prompt", "Please choose a data to edit!");
+                $.messager.alert("system prompt", "Please choose one data to edit!");
                 return;
             }
             var row = selectedRows[0];

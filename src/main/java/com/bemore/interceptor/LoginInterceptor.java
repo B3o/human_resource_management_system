@@ -16,46 +16,36 @@ public class LoginInterceptor implements HandlerInterceptor {
     private static final String[] IGNORE_URI = { "/login" };
 
     @Override
-    public void afterCompletion(HttpServletRequest arg0,
-                                HttpServletResponse arg1, Object arg2, Exception arg3)
+    public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
             throws Exception {
 
     }
 
     @Override
-    public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
-                           Object arg2, ModelAndView arg3) throws Exception {
+    public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3) throws Exception {
 
     }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
-
-
-        // flag 表示是否登录
         boolean flag = false;
-        // 获取请求的 URL
         String url = request.getServletPath();
-        for (String s : IGNORE_URI) {
+        for (String s: IGNORE_URI) {
             if (url.contains(s)) {
                 flag = true;
                 break;
             }
         }
-        if (!flag) {
-            // 获取 Session 并判断是否登录
-            String username = (String) request.getSession().getAttribute(
-                    "username");
-            if (username == null) {
-                request.setAttribute("message", "Please log in first!");
-                // 如果未登录，进行拦截，跳转到登录页面
-                request.getRequestDispatcher("/login.jsp")
-                        .forward(request, response);
-            } else {
-                flag = true;
+            if (!flag) {
+                String username = (String)request.getSession().getAttribute("username");
+                if (username == null) {
+                    request.setAttribute("message", "Please log in first");
+                    request.getRequestDispatcher("/login.jsp").forward(request, response);
+                } else {
+                    flag = true;
+                }
             }
-        }
         return flag;
     }
 
